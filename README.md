@@ -1,0 +1,3 @@
+# mig
+
+Scriptable map migrations

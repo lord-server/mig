@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 
     mig::world world;
     if (!world.open(argv[1])) {
-        std::cerr << "couldn't open world" << std::endl;
+        std::cerr << "unable to open world" << std::endl;
         return 1;
     }
 }

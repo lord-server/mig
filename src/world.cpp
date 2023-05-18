@@ -9,6 +9,7 @@
 #include <unordered_map>
 #include <vector>
 
+#include "postgresql.h"
 #include "stringops.h"
 #include "world.h"
 
@@ -77,6 +78,14 @@ bool world::open(std::string_view path)
     }
 
     std::cout << "postgresql connection: " << *postgresql_connection << std::endl;
+
+    auto backend = postgresql_backend::connect(postgresql_connection->c_str());
+    if (!backend) {
+        std::cerr << "unable to create postgresql backend" << std::endl;
+        return false;
+    }
+
+    m_backend = std::make_unique<postgresql_backend>(std::move(*backend));
 
     return true;
 }
