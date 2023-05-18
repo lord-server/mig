@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "script.h"
 #include "world.h"
 
 int main(int argc, char **argv)
@@ -8,6 +9,8 @@ int main(int argc, char **argv)
         std::cerr << "usage: mig <world path>" << std::endl;
         return 1;
     }
+
+    mig::script_env script;
 
     mig::world world;
     if (!world.open(argv[1])) {

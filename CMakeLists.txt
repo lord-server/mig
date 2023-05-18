@@ -3,10 +3,15 @@ project(mig)
 
 find_package(PostgreSQL REQUIRED)
 
+set(LUAU_BUILD_CLI OFF)
+set(LUAU_BUILD_TESTS OFF)
+add_subdirectory(vendor/luau)
+
 add_executable(mig
     src/main.cpp
     src/postgresql.cpp
+    src/script.cpp
     src/stringops.cpp
     src/world.cpp)
 target_compile_features(mig PUBLIC cxx_std_17)
-target_link_libraries(mig PostgreSQL::PostgreSQL)
+target_link_libraries(mig PostgreSQL::PostgreSQL Luau.Compiler Luau.VM)
