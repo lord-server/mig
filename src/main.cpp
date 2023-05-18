@@ -3,7 +3,7 @@
 #include "script.h"
 #include "world.h"
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     if (argc < 2) {
         std::cerr << "usage: mig <world path>" << std::endl;

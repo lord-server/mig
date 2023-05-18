@@ -12,6 +12,6 @@ public:
     script_env& operator=(const script_env&) = delete;
 
 private:
-    lua_State *L;
+    lua_State* L;
 };
 }
