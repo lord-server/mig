@@ -17,4 +17,11 @@ int main(int argc, char** argv)
         std::cerr << "unable to open world" << std::endl;
         return 1;
     }
+
+
+    mig::block_position center(0, 0, 0);
+    std::vector<uint8_t> data;
+    if (world.get_block(center, data)) {
+        std::cout << int(data[0]) << std::endl;
+    }
 }

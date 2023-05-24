@@ -3,11 +3,12 @@ project(mig)
 
 find_package(PostgreSQL REQUIRED)
 
-set(LUAU_BUILD_CLI OFF)
-set(LUAU_BUILD_TESTS OFF)
+set(LUAU_BUILD_CLI OFF CACHE INTERNAL "")
+set(LUAU_BUILD_TESTS OFF CACHE INTERNAL "")
 add_subdirectory(vendor/luau)
 
 add_executable(mig
+    src/block.cpp
     src/main.cpp
     src/postgresql.cpp
     src/script.cpp

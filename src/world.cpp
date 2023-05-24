@@ -89,4 +89,9 @@ bool world::open(std::string_view path)
 
     return true;
 }
+
+bool world::get_block(block_position pos, std::vector<uint8_t>& data)
+{
+    return m_backend->get_block(pos, data);
+}
 }
